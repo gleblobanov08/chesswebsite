@@ -1,0 +1,73 @@
+.board {
+    display: grid;
+    grid-template-columns: repeat(8, 50px);
+    grid-template-rows: repeat(8, 50px);
+}
+
+.square {
+    width: 50px;
+    height: 50px;
+}
+
+.square:nth-child(odd) {
+    background-color: #d18b47;
+}
+
+.square:nth-child(even) {
+    background-color: #ffce9e;
+}
+
+.piece {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    /*font-size: 40px;*/
+}
+
+.black.king::before {
+    content: "♚";
+}
+
+.black.queen::before {
+    content: "♛";
+}
+
+.black.rook::before {
+    content: "♜";
+}
+
+.black.bishop::before {
+    content: "♝";
+}
+
+.black.knight::before {
+    content: "♞";
+}
+
+.black.pawn::before {
+    content: "♟";
+}
+
+.white.king::before {
+    content: "♔";
+}
+
+.white.queen::before {
+    content: "♕";
+}
+
+.white.rook::before {
+    content: "♖";
+}
+
+.white.bishop::before {
+    content: "♗";
+}
+
+.white.knight::before {
+    content: "♘";
+}
+
+.white.pawn::before {
+    content: "♙";
+}
