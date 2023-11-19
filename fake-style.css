@@ -1,14 +1,24 @@
 .chess-board {
+    width: 400px;
+    height: 400px;
     background-color: #EEEEE2;
     display: grid;
     grid-template-columns: repeat(8, 50px);
     grid-template-rows: repeat(8, 50px);
 }
 
+.file {
+    display: grid;
+    grid-template-columns: 50px;
+    grid-template-rows: repeat(8, 50px);
+    height: 400px;
+    width: 50px;
+}
+
 .file:nth-of-type(odd) div:nth-of-type(even) {
     background-color: #769656;
 }
 
-.file:nth-of-type(even) div:nth-last-of-type(odd) {
+.file:nth-of-type(even) div:nth-last-of-type(even) {
     background-color: #769656;
 }
