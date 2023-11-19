@@ -11,9 +11,8 @@ function handleMove(sourceSquare, targetSquare) {
     targetElement.appendChild(newPiece);
 }
 
-// Example: Simulate a move when the page is loaded
 document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function() {
         handleMove("e2", "e4");
-    }, 1000); // Simulate a move after 1 second
+    }, 1000);
 });

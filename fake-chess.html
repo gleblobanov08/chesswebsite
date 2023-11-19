@@ -4,11 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="fake-style.css">
 </head>
 <body>
     <h1>Welcome to my awesome chess website!</h1>
-    <div>
-        <div>
+    <div class="chess-board" id="notClickableSection">
+        <div class="file">
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_rdt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_ndt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_bdt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_qdt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_kdt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_bdt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_ndt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_rdt45.svg"></div>
+        </div>
+        <div class="file">
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_pdt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_pdt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_pdt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_pdt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_pdt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_pdt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_pdt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_pdt45.svg"></div>
+        </div>
+        <div class="file">
             <div></div>
             <div></div>
             <div></div>
@@ -18,7 +39,7 @@
             <div></div>
             <div></div>
         </div>
-        <div>
+        <div class="file">
             <div></div>
             <div></div>
             <div></div>
@@ -28,7 +49,7 @@
             <div></div>
             <div></div>
         </div>
-        <div>
+        <div class="file">
             <div></div>
             <div></div>
             <div></div>
@@ -38,7 +59,7 @@
             <div></div>
             <div></div>
         </div>
-        <div>
+        <div class="file">
             <div></div>
             <div></div>
             <div></div>
@@ -48,45 +69,25 @@
             <div></div>
             <div></div>
         </div>
-        <div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+        <div class="file">
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_plt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_plt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_plt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_plt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_plt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_plt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_plt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_plt45.svg"></div>
         </div>
-        <div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+        <div class="file">
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_rlt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_nlt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_blt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_qlt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_klt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_blt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_nlt45.svg"></div>
+            <div><img src="https://commons.wikimedia.org/wiki/File:Chess_rlt45.svg"></div>
         </div>
     </div>
     <h2>Leaderbords</h2>
@@ -107,5 +108,10 @@
             <td>100</td>
         </tr>
     </table>
+    <script>
+        document.getElementById("notClickableSection").addEventListener("click", function() {
+            alert("Hey, nerd! You are not allowed to play here. Go to your fucking chess.cum. You are not welcome anymore");
+        })
+    </script>
 </body>
 </html>
