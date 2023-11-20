@@ -22,3 +22,11 @@
 .file:nth-of-type(even) div:nth-last-of-type(even) {
     background-color: #769656;
 }
+
+.table td {
+    padding: 20px;
+}
+.table img {
+    height: 50px;
+    width: 50px;
+}
