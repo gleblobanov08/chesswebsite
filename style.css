@@ -24,50 +24,50 @@
     /*font-size: 40px;*/
 }
 
-.black.king::before {
+.black-king::before {
     content: "♚";
 }
 
-.black.queen::before {
+.black-queen::before {
     content: "♛";
 }
 
-.black.rook::before {
+.black-rook::before {
     content: "♜";
 }
 
-.black.bishop::before {
+.black-bishop::before {
     content: "♝";
 }
 
-.black.knight::before {
+.black-knight::before {
     content: "♞";
 }
 
-.black.pawn::before {
+.black-pawn::before {
     content: "♟";
 }
 
-.white.king::before {
+.white-king::before {
     content: "♔";
 }
 
-.white.queen::before {
+.white-queen::before {
     content: "♕";
 }
 
-.white.rook::before {
+.white-rook::before {
     content: "♖";
 }
 
-.white.bishop::before {
+.white-bishop::before {
     content: "♗";
 }
 
-.white.knight::before {
+.white-knight::before {
     content: "♘";
 }
 
-.white.pawn::before {
+.white-pawn::before {
     content: "♙";
 }
