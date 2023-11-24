@@ -1,10 +1,12 @@
 .chess-board {
     width: 400px;
     height: 400px;
+    margin: 20px;
     background-color: #EEEEE2;
     display: grid;
     grid-template-columns: repeat(8, 50px);
     grid-template-rows: repeat(8, 50px);
+    float: left;
 }
 
 .file {
@@ -26,7 +28,7 @@
 .table td {
     padding: 20px;
 }
-.table img {
+img {
     height: 50px;
     width: 50px;
 }
