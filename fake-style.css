@@ -1,3 +1,8 @@
+body {
+    background-color: #333333;
+    color: #a9a9a9;
+}
+
 .chess-board {
     width: 400px;
     height: 400px;
@@ -31,4 +36,16 @@
 img {
     height: 50px;
     width: 50px;
+}
+
+#gold {
+    color: #ffd500;
+}
+
+#silver {
+    color: #c0c0c0;
+}
+
+#bronze {
+    color: #cd7f32;
 }
