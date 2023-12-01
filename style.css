@@ -4,6 +4,12 @@
     grid-template-rows: repeat(8, 50px);
 }
 
+.chess-container {
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
 .row {
     width: 50px;
     height: 400px;

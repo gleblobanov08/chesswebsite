@@ -1,6 +1,22 @@
+@media screen and (width < 560px) {
+    body {
+        font-size: 0.7em;
+    }
+} @media screen and (width > 560px) {
+    body {
+        font-size: 1em;
+    }
+}
+
 body {
     background-color: #333333;
     color: #a9a9a9;
+}
+
+.chess-container, .table-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .chess-board {
@@ -11,7 +27,6 @@ body {
     display: grid;
     grid-template-columns: repeat(8, 50px);
     grid-template-rows: repeat(8, 50px);
-    float: left;
 }
 
 .file {
@@ -30,8 +45,13 @@ body {
     background-color: #769656;
 }
 
-.table td {
-    padding: 20px;
+h1, h2 {
+    text-align: center;
+}
+
+table td {
+    color: #fff;
+    padding: 10px;
 }
 img {
     height: 50px;
