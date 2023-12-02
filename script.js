@@ -1,3 +1,4 @@
+/*
 function initializeBoard() {
     const boardElement = document.getElementById("board");
 
@@ -27,6 +28,7 @@ function initializeBoard() {
         boardElement.appendChild(row);
     }
 }
+*/
 
 function handleMove(sourceSquare, targetSquare) {
     const sourceElement = document.getElementById(sourceSquare);
@@ -46,4 +48,32 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function() {
         handleMove("e2", "e4");
     }, 1000);
+});
+
+function handleDragStart(event) {
+    event.dataTransfer.setData("text/plain", event.target.parentElement.id);
+}
+
+function handleDragOver(event) {
+    event.preventDefault();
+}
+
+function handleDrop(event) {
+    event.preventDefault();
+    const sourceSquareId = event.dataTransfer.getData("text/plain");
+    const targetSquareId = event.target.id;
+
+    handleMove(sourceSquareId, targetSquareId);
+}
+
+const squaresWithPieces = document.querySelectorAll('.square .piece');
+squaresWithPieces.forEach(square => {
+    square.setAttribute('draggable', true);
+    square.addEventListener('dragstart', handleDragStart);
+});
+
+const allSquares = document.querySelectorAll('.square');
+allSquares.forEach(square => {
+    square.addEventListener('dragover', handleDragOver);
+    square.addEventListener('drop', handleDrop);
 });
