@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="chess-container">
+        <h1>Gloublex Chess Game</h1>
         <div class="board" id="board">
             <div class="row">
                 <div class="square" id="a8"><div class="piece black-rook"></div></div>
@@ -90,9 +91,17 @@
                 <div class="square" id="h1"><div class="piece white-rook"></div></div>
             </div>
         </div>
+        <div class="buttons">
+            <button class="play-again">Play Again</button>
+            <button class="set-pos">Set Position</button>
+            <button class="flip-board">Flip Board</button>
+        </div>
+        <div class="move-history" id="move-history"></div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/chessboard-1.0.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
 </body>
 </html>
 
