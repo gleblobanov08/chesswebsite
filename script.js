@@ -1,79 +1,90 @@
-/*
-function initializeBoard() {
-    const boardElement = document.getElementById("board");
+document.addEventListener('DOMContentLoaded', () => {
+    let board = null;
+    const game = new Chess();
+    const moveHistory = document.getElementById('move-history');
+    let moveCount = 1;
+    let userColor = 'w';
 
-    for (let i = 7; i >= 0; i--) {
-        const row = document.createElement("div");
-        row.classList.add("row");
-
-        for (let j = 0; j < 8; j++) {
-            const square = document.createElement("div");
-            square.classList.add("square");
-            square.id = `${String.fromCharCode(97 + j)}${8 - i}`;
-
-            if (boardState[i][j] !== "") {
-                const piece = document.createElement("div");
-                piece.classList.add("piece", boardState[i][j]);
-                piece.setAttribute("draggable", "true");
-                piece.addEventListener("dragstart", handleDragStart);
-                square.appendChild(piece);
-            }
-
-            square.addEventListener("dragover", handleDragOver);
-            square.addEventListener("drop", handleDrop);
-
-            row.appendChild(square);
+    const makeRandomMove = () => {
+        const possibleMoves = game.moves();
+        if (game.game_over()) {
+            alert("Checkmate!");
+        } else {
+            const randomIdx = Math.floor(Math.random() * possibleMoves.length);
+            const move = possibleMoves[randomIdx];
+            game.move(move);
+            board.position(game.fen());
+            recordMove(move, moveCount);
+            moveCount++;
         }
-
-        boardElement.appendChild(row);
     }
-}
-*/
+    const recordMove = (move, moveCount) => {
+        const formattedMove = count % 2 === 1 ? `${Math.ceil(count / 2)}. ${move}` : `${move} -`;
+        moveHistory.textContent += formattedMove + ' ';
+        moveHistory.scrollTop = moveHistory.scrollHeight; 
+    };
 
-function handleMove(sourceSquare, targetSquare) {
-    const sourceElement = document.getElementById(sourceSquare);
-    const targetElement = document.getElementById(targetSquare);
+    const onDragStart = (source, piece) => {
+        return !game.game_over() && piece.search(userColor) === 0;
+    };
 
-    const pieceClass = sourceElement.querySelector(".piece").classList[1];
-    targetElement.innerHTML = "";
+    const onDrop = (source, target) => {
+        const move = game.move({
+            from: source,
+            to: target,
+            promotion: 'q',
+        });
 
-    const newPiece = document.createElement("div");
-    newPiece.classList.add("piece", pieceClass);
-    targetElement.appendChild(newPiece);
+        if (move === null) return 'snapback';
 
-    sourceElement.querySelector(".piece").classList.remove(pieceClass);
-}
+        window.setTimeout(makeRandomMove, 250);
+        recordMove(move.san, moveCount);
+        moveCount++;
+    };
 
-document.addEventListener("DOMContentLoaded", function() {
-    setTimeout(function() {
-        handleMove("e2", "e4");
-    }, 1000);
-});
+    const onSnap = () => {
+        board.position(game.fen());
+    };
 
-function handleDragStart(event) {
-    event.dataTransfer.setData("text/plain", event.target.parentElement.id);
-}
+    const boardConfig = {
+        showNotation: true,
+        draggable: true,
+        position: 'start',
+        onDragStart,
+        onDrop,
+        onSnapEnd,
+        moveSpeed: 'slow',
+        snapBackSpeed: 500,
+        snapSpeed: 100,
+    };
 
-function handleDragOver(event) {
-    event.preventDefault();
-}
+    board = Chessboard('board', boardConfig);
 
-function handleDrop(event) {
-    event.preventDefault();
-    const sourceSquareId = event.dataTransfer.getData("text/plain");
-    const targetSquareId = event.target.id;
+    document.querySelector('.play-again').addEventListener('click', () => {
+        game.reset();
+        board.start();
+        moveHistory.textContent = '';
+        moveCount = 1;
+        userColor = 'w';
+    });
 
-    handleMove(sourceSquareId, targetSquareId);
-}
+    document.querySelector('.set-pos').addEventListener('click', () => {
+        const fen = prompt("Enter the FEN notation for the desired position");
+        if (fen !== null) {
+            if (game.load(fen)) {
+                board.position(fen);
+                moveHistory.textContent = '';
+                moveCount = 1;
+                userColor = 'w';
+            } else {
+                alert ('Invalid FEN notation. Try again.');
+            }
+        }
+    });
 
-const squaresWithPieces = document.querySelectorAll('.square .piece');
-squaresWithPieces.forEach(square => {
-    square.setAttribute('draggable', true);
-    square.addEventListener('dragstart', handleDragStart);
-});
-
-const allSquares = document.querySelectorAll('.square');
-allSquares.forEach(square => {
-    square.addEventListener('dragover', handleDragOver);
-    square.addEventListener('drop', handleDrop);
+    document.querySelector('.flip-board').addEventListener('click', () => {
+        board.flip();
+        makeRandomMove();
+        userColor = userColor === 'w' ? 'b' : 'w';
+    });
 });
