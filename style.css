@@ -54,9 +54,10 @@ button:hover {
 .board {
     width: 400px;
     margin: 20px auto;
-    display: grid;
+/*    display: grid;
     grid-template-columns: repeat(8, 50px);
     grid-template-rows: repeat(8, 50px);
+*/
 }
 
 .buttons {
@@ -64,93 +65,4 @@ button:hover {
     display: flex;
     justify-content: center;
     gap: 10px;
-}
-.chess-container {
-    margin: 1rem;
-    display: flex;
-    justify-content: center;
-}
-
-.row {
-    width: 50px;
-    height: 400px;
-}
-
-.square {
-    width: 50px;
-    height: 50px;
-}
-
-.row:nth-of-type(even) .square:nth-child(odd) {
-    background-color: #d18b47;
-}
-
-.row:nth-of-type(even) .square:nth-child(even) {
-    background-color: #ffce9e;
-}
-
-.row:nth-of-type(odd) .square:nth-last-of-type(odd) {
-    background-color: #d18b47;
-}
-
-.row:nth-of-type(odd) .square:nth-last-of-type(even) {
-    background-color: #ffce9e;
-}
-
-.piece {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
-}
-
-.black-king::before {
-    content: "♚";
-}
-
-.black-queen::before {
-    content: "♛";
-}
-
-.black-rook::before {
-    content: "♜";
-}
-
-.black-bishop::before {
-    content: "♝";
-}
-
-.black-knight::before {
-    content: "♞";
-}
-
-.black-pawn::before {
-    content: "♟";
-}
-
-.white-king::before {
-    content: "♔";
-}
-
-.white-queen::before {
-    content: "♕";
-}
-
-.white-rook::before {
-    content: "♖";
-}
-
-.white-bishop::before {
-    content: "♗";
-}
-
-.white-knight::before {
-    content: "♘";
-}
-
-.white-pawn::before {
-    content: "♙";
 }
