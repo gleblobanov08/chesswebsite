@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         moveCount++;
     };
 
-    const onSnap = () => {
+    const onSnapEnd = () => {
         board.position(game.fen());
     };
 
