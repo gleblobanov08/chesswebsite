@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             moveCount++;
         }
     }
-    const recordMove = (move, moveCount) => {
+    const recordMove = (move, count) => {
         const formattedMove = count % 2 === 1 ? `${Math.ceil(count / 2)}. ${move}` : `${move} -`;
         moveHistory.textContent += formattedMove + ' ';
         moveHistory.scrollTop = moveHistory.scrollHeight; 
