@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // setup
     let board = null;
     const game = new Chess();
     const moveHistory = document.getElementById('move-history');
@@ -18,12 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
             moveCount++;
         }
     }
+
+    // keep track of moves
     const recordMove = (move, count) => {
         const formattedMove = count % 2 === 1 ? `${Math.ceil(count / 2)}. ${move}` : `${move} -`;
         moveHistory.textContent += formattedMove + ' ';
         moveHistory.scrollTop = moveHistory.scrollHeight; 
     };
 
+    // moving pieces logic
     const onDragStart = (source, piece) => {
         return !game.game_over() && piece.search(userColor) === 0;
     };
@@ -46,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         board.position(game.fen());
     };
 
+    // some board properties
     const boardConfig = {
         showNotation: true,
         draggable: true,
@@ -60,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     board = Chessboard('board', boardConfig);
 
+    // how should buttons work
     document.querySelector('.play-again').addEventListener('click', () => {
         game.reset();
         board.start();
